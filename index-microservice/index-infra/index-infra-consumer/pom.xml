@@ -8,8 +8,7 @@
         <artifactId>index-infra</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <artifactId>index-infra-web</artifactId>
-    <packaging>jar</packaging>
+    <artifactId>index-infra-consumer</artifactId>
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
@@ -19,17 +18,6 @@
         <dependency>
             <groupId>jsmpoc</groupId>
             <artifactId>index-domain</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>jsmpoc</groupId>
-            <artifactId>index-infra-client</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>jsmpoc</groupId>
-            <artifactId>index-infra-consumer</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>

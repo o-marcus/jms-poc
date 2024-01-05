@@ -14,8 +14,7 @@
     <packaging>pom</packaging>
     <name>jmspoc-parent</name>
 	<description>Simple proof of concept</description>
-    	<modules>
-		<module>recomendation-microservice</module>
+	<modules>
 		<module>index-microservice</module>
 		<module>library-microservice</module>
 	</modules>

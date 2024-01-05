@@ -5,6 +5,7 @@ import com.jmspoc.model.dto.SearchBookDTO;
 import com.jmspoc.spi.LoadBooksUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.reactive.function.client.WebClient;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -14,13 +15,20 @@ public class BookLoader implements LoadBooksUseCase {
 
     private final WebClient webClient;
     private static final String URL = "http://localhost:8081/api/books";
-    private List<SearchBookDTO> cash;
+    private final List<SearchBookDTO> cash = new ArrayList<>();
 
     @Override
     public List<SearchBookDTO> loadAll() {
-        if (cash != null && !cash.isEmpty()) return cash;
-        cash = getBooks();
+        if (!cash.isEmpty()) return cash;
+        cash.addAll(getBooks());
         return cash;
+    }
+
+    @Override
+    public void updateCollection(SearchBookDTO document) {
+        if (!cash.isEmpty()) {
+            cash.add(document);
+        }
     }
 
     private List<SearchBookDTO> getBooks() {

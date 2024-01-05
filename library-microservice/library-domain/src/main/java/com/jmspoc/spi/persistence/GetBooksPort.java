@@ -1,4 +1,4 @@
-package com.jmspoc.spi;
+package com.jmspoc.spi.persistence;
 
 import com.jmspoc.model.Book;
 import java.util.List;

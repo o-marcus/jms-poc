@@ -11,8 +11,10 @@
 
     <artifactId>library-infra</artifactId>
     <packaging>pom</packaging>
+
     <modules>
         <module>library-infra-web</module>
+        <module>library-infra-producer</module>
     </modules>
 
     <properties>

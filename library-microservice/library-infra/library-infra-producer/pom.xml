@@ -5,32 +5,25 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>jsmpoc</groupId>
-        <artifactId>index-infra</artifactId>
+        <artifactId>library-infra</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <artifactId>index-infra-web</artifactId>
-    <packaging>jar</packaging>
+
+    <artifactId>library-infra-producer</artifactId>
+
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>jsmpoc</groupId>
-            <artifactId>index-domain</artifactId>
+            <artifactId>library-domain</artifactId>
             <version>0.0.1-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
-        <dependency>
-            <groupId>jsmpoc</groupId>
-            <artifactId>index-infra-client</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>jsmpoc</groupId>
-            <artifactId>index-infra-consumer</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
     </dependencies>
+
 </project>

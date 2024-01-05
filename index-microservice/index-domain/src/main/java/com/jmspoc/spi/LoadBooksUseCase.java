@@ -5,5 +5,6 @@ import com.jmspoc.model.dto.SearchBookDTO;
 import java.util.List;
 
 public interface LoadBooksUseCase {
-    public List<SearchBookDTO> loadAll();
+     List<SearchBookDTO> loadAll();
+      void updateCollection(SearchBookDTO document);
 }

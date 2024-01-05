@@ -13,6 +13,7 @@
     <modules>
         <module>index-infra-web</module>
         <module>index-infra-client</module>
+        <module>index-infra-consumer</module>
     </modules>
     <properties>
         <maven.compiler.source>17</maven.compiler.source>

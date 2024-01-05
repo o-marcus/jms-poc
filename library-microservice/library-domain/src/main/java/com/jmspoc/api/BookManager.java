@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface BookManager {
     List<Book> loadBooks();
+    void addBook(Book book);
 }

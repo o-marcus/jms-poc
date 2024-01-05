@@ -7,5 +7,6 @@ import java.util.Set;
 public interface IndexedSearch {
      void addDocument(SearchBookDTO document, String content);
     Set<SearchBookDTO> getDocumentsForTerm(String term);
+    void updateCollection(SearchBookDTO document);
     void printInvertedIndex();
 }

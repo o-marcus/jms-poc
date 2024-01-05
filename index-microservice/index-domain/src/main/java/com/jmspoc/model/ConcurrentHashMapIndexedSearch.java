@@ -2,10 +2,9 @@ package com.jmspoc.model;
 
 import com.jmspoc.hexarchitecture.ValueObject;
 import com.jmspoc.model.dto.SearchBookDTO;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import org.apache.catalina.LifecycleState;
+
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 @ValueObject
@@ -13,21 +12,37 @@ import java.util.concurrent.ConcurrentHashMap;
         implements IndexedSearch {
 
     private final ConcurrentHashMap<String, Set<SearchBookDTO>> index =  new ConcurrentHashMap<>();
+    private final List<String> lastTerms = new ArrayList<>();
 
     @Override
     public void addDocument(SearchBookDTO document, String content) {
         String[] terms = content.toLowerCase().split(" ");
         for (String term : terms) {
-            var documentContent = document.content().toLowerCase();
-            if (documentContent.contains(term)) {
-                index.computeIfAbsent(term, k -> new HashSet<>()).add(document);
-            }
+            lastTerms.add(term);
+            putContent(document, term);
+        }
+    }
+
+    private void putContent(
+            SearchBookDTO document,
+            String token
+    ) {
+        var content = document.content().toLowerCase();
+        if (content.contains(token)) {
+            index.computeIfAbsent(token, k -> new HashSet<>()).add(document);
         }
     }
 
     @Override
     public Set<SearchBookDTO> getDocumentsForTerm(String term) {
         return index.getOrDefault(term, Collections.emptySet());
+    }
+
+    @Override
+    public void updateCollection(SearchBookDTO document) {
+        lastTerms.forEach(token -> {
+            putContent(document, token);
+        });
     }
 
     @Override

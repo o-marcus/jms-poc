@@ -10,6 +10,5 @@ import java.util.UUID;
 @AllArgsConstructor
 @Data
 public class Author {
-    private UUID id;
     private String name;
 }
