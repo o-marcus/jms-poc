@@ -3,12 +3,12 @@ package com.jmspoc.application;
 import com.jmspoc.api.BookManager;
 import com.jmspoc.hexarchitecture.UseCase;
 import com.jmspoc.model.Book;
-import com.jmspoc.spi.producer.BookMapper;
 import com.jmspoc.spi.producer.BookMessage;
 import com.jmspoc.spi.producer.BookMessageProducer;
 import com.jmspoc.spi.persistence.GetBooksPort;
 import com.jmspoc.spi.persistence.InsertBookPort;
 import lombok.RequiredArgsConstructor;
+
 import java.util.Comparator;
 import java.util.List;
 
@@ -33,4 +33,5 @@ public class BookService implements BookManager {
         insertion.addBook(book);
         producer.notify("Queue.book", new BookMessage(book));
     }
+
 }
